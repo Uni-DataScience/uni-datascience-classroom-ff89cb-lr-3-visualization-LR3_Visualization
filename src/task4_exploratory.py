@@ -12,7 +12,22 @@ def perform_eda(df):
     Parameters:
     df (DataFrame): A DataFrame containing data for EDA.
     """
-    pass
+    print("Descriptive Statistics:")
+    print(df.describe())
+    
+    plt.figure(figsize=(12, 6))
+    sns.boxplot(data=df)
+    plt.title("Box Plots for Outlier Detection")
+    plt.show()
+
+    corr_matrix = df.corr()
+    print("\nCorrelation Matrix:")
+    print(corr_matrix)
+    
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True)
+    plt.title("Correlation Heatmap")
+    plt.show()
 
 # Example data
 df = pd.DataFrame({
